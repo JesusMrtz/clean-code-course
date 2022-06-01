@@ -1,0 +1,148 @@
+¿Qué es la deuda tecnica?
+  - Es la falta de calidad en el código, que genera una deuda que repercutirá en costos futuros como:
+
+    * Costos económicos
+      - Tiempo en realizar mantenimientos.
+      - Tiempo en refacturizar código.
+      - Tiempo en comprender el código.
+      - Tiempo adicional en la transferencia del código.
+
+
+ESQUEMA DE LA DEUDA TECNICA 
+  - Imprudente
+    * No hay tiempo, sólo copia y pega eso de nuevo
+  - Inadvertido 
+    * Se genera por falta de conocimiento o experiencia.
+  - Pruendente y deliverada
+    * Sabemos que tenemos esa deuda técnica, el problema de esa deuda es que si no se paga a tiempo más intereses vamos a pagar como por ejemplo "Tenemos que entregar rápido, ya refactorizaremos"
+  - Prudente e inavertida 
+    * No tenemos el conocimiento total del proyecto si no hasta que avancemos y maduremos el proyecto, como por ejemplo "Ahora sabemos cómo lo deberíamos haber hecho"
+
+Caer en deuda técnica es normal y a menudo es inevitable pero un programador experimentado sabe que existe dicha deuda y la tendrá que pagar.
+
+
+¿CÓMO SE PAGA UNA DEUDA TÉCNICA?
+  - Refactorización
+    * Es simplemente un proceso que tiene como objetivo mejorar el código sin alterar su comportamiento para que sea más entendible y tolerante a cambios.
+    * Es imprensidible tener pruebas automaticas
+    * Usualmente esto produce el famoso: "Si funciona, no lo toques"
+
+  La mala calidad en el software siempre la acaba pagando o asumiendo alguien. Ya sea el cliente, el proveedor con recursos o el propio desarrollador dedicando tiempo a refactorizar o malgastando tiempo programando sobre un sistema frágil.
+
+
+  ¿ Qué es el Clean Code?
+    - Código limpio es aquel que se ha escrito con la intención de que otra persona (o tú mismo en el futuro) lo entienda
+
+
+  Principios de responsabilidad única
+
+
+
+ACRONIMO STUPID " 6 code Smell que debemos de evitar"
+  * Singleton: Patrón Singleton.
+  * Tigh coupling: Alto acoplamiento
+  * Untestability: Código no probable (unit test)
+  * Premature optimization: optimization prematura
+  * Indescriptive naming: Nombres pocos descriptivos
+  * Duplication: Duplicidad de código, no aplicar el principio dry
+
+PAtron Singleton:
+  PROS:
+    * Garantiza una única instancia de la clase a lo largo de toda la aplicación
+  CONS:
+    * Vive en el contexto global
+    * Puede ser modificado por cualquiera y en cualquier momento.
+    * No es rasteable.
+    * Dificil de testear debido a su ubicación.
+
+Alto acoplamiento y cohesión
+  Desventabas de alto acoplamiento:
+    * Un cambio en un módulo por lo general provoca un efecto dominó de los cambios en otros módulos.
+    * El ensamblaje de módulos pueden requerir más esfuerzo y/o tiempo debido a la mayor dependencia entre módulos.
+    * Un módulo en particular puede ser más dificil de reutilizar y/o probar porque se deben incluir módulos dependientes.
+
+  ¿Qué es la cohesión?
+    * La cohesión se refiere a lo que la clase (o módulo) puede hacer.
+    * La baja cohesión significaría que la clase realiza una gran variedad de acciones: es amplia, no se enfoca en lo que debe hacer.
+    * Alta cohesión significa que la clase se enfoca en lo que debería estar haciendo, es decir, solo métodos relacionados con la intención de la clase.
+
+    ¿Qué es acoplamiento?
+      * Se refiere a cuán relacionadas o dependientes son dos clases o módulos entre sí.
+      * El bajo acomplamiento, cambiar algo importante en una clase no debería afectar a la otra. 
+
+
+  Código no probable es:
+    * Código dificilmente testeable
+    * Código con alto acoplamiento.
+    * Código con muchas dependencias no inyectadas
+    * Dependencias en el contexto global (Tipo Singleton)
+  
+  * Para evitar el código no probable Debemos de tener en mente las pruebas desde la creación del código
+
+
+Optimizaciones prematuras es:
+  * Mantener abiertas las opciones retrasando la toma de decisiones nos permite darle mayor relevancia a lo que es más importante en una aplicación.
+  * No debemos anticiparnos a los requisitos y desarrollar abstracciones innecesarias que puedan añadir complejidad accidental.
+
+
+
+
+PRINCIPIOS SOLID
+  - Los principios de SOLID nos indica cómo organizar nuestras funciones y estructuras de datos en componentes y cómo dichos componentes deben estar interconectados.
+
+  - Los 5 principios S.O.L.I.D del diseño de software son:
+    * S - Single Responsability Principle (SRP)
+    * O - Open / Close Principle (OCP)
+    * L - Liskov Substitution Principle (LSP)
+    * I - Interface Segregation Princile (ISP)
+    * D - Dependency Inversion Principle (DPI)
+
+
+  - ¿Cómo detectar violaciones de SRP?
+    - Nombre de clases y módulos demasiado genéricos.
+    - Cambios en el código sujelen afectar la clase o módulo.
+    - La clase involucra múltiples capas.
+    - Número elevado de importaciones.
+    - Cantidad elevada de métodos públicos.
+    - Excesivo número de líneas de código.
+
+
+- Open and Close: Abierto y Cerrado (OCP  )
+  - Establece que las entidades de software (clases, módulos, métodos, etc.) deben estar abiertas para la extensión, pero cerradas para la modificación.
+  - La forma más sencilla de demostrar este principio es considerar un método que hace una cosa.
+  - El principio abierto-cerrado también se puede lograr de muchas otras maneras, incluso mediante el uso de la herencia o mediante patrones de diseño de composición como el patrón de estrategia.
+
+  - ¿Cómo dectectar violaciones de OPC?
+    - Cambios normales afectan nuestra clase o módulo
+    - Cuando una clase o módulo afecta muchas capas. (Presentación, almacenamiento, etc.)
+
+
+- La sustitución de Liskov.
+  - "Siendo U un subtipo de T, cualquier instancia de T debería poder ser sustiuida por cualquier instancia de U sin alterar las prpopiedades del sistema" 
+
+
+- La segregación de Interfaz (ISP)
+  - Este principio establece que los clientes no deberían verse forzados a depender de interfaces que no usan.
+
+  -¿Cómo detectar violaciones ISP?
+    - Si las interfaces que diseñamos nos obliga a violar los principios de responsabilidad única y substitución de Liskov.
+
+
+- Inversión de dependencia (DPI)
+  - Los módulos de alto nivel no deben depender de módulos de bajo nivel.
+  - Ambos deberían depender de abstracciones.
+  - Las abstracciones no deberían depender de detalles.
+  - Los detalles debería depender de abstracciones.
+
+  - Los componentes más importantes son aquellos centrados en resolver el problema subyacente al negocio, es decir, la capa de dominio.
+    Los menos importantes son los que están próximos a la infraestructura, es decir, aquellos relacionados con la UI, la persistencia, la comunicación con API externas, etc.
+  
+  - Uno de los motivos más importantes por el cual las reglas de negocio o capas de dominio deben depender de estas y no de concreciones es que aumenta su tolerancia al cambio.
+
+  ¿Porqué obtenemos este beneficio?
+    - CAda cambio en un componente abstracto implica un cambio en su implementación.
+    - Por el contrario, los cambios en implementaciones concretas, la mayoría de las veces, no requieren cambios en las interfaces que implementa.
+
+  Inyección de dependencias
+    * Dependencia en programación, significa que un módulo o componente requiere de otro para poder realizar su trabajo.
+    - En algún momento nuestro programa o aplicación llegará a estar formado por muchos módulos. Cuando esto pase, es cuando debemos usar inyección de dependencias.
